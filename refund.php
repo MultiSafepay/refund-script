@@ -8,14 +8,10 @@ $refundData = [];
 $apiKey = $argv[1];
 
 //Get the data
-if (($h = fopen("{$filename}", "r")) !== FALSE) {
-    // Each line in the file is converted into an individual array that we call $data
-    // The items of the array are comma separated
-    while (($data = fgetcsv($h, 256, ",")) !== FALSE) {
-        // Each individual array is being pushed into the nested array
+if (($h = fopen("{$filename}", "r")) !== false) {
+    while (($data = fgetcsv($h, 256, ",")) !== false) {
         $refundData[] = $data;
     }
-
     // Close the file
     fclose($h);
 }
@@ -36,7 +32,7 @@ foreach ($refundData as $key => $value) {
     $orderId = $value[0];
     $amount = $value[1];
     $description = $value[2];
-    $url = TEST_URL . "orders/" . $orderId . "/refunds";
+    $url = LIVE_URL . "orders/" . $orderId . "/refunds";
 
     $jsonData = json_encode([
         'currency' => 'EUR',
@@ -83,7 +79,6 @@ foreach ($refundData as $key => $value) {
 
     print_r($body);
 
-
     $returnData = json_decode($body);
 
     if ($returnData->success === false) {
@@ -98,7 +93,6 @@ foreach ($refundData as $key => $value) {
     $refundData[$key]['refund_id'] = $returnData->data->refund_id;
 
 }
-
 
 $fp = fopen('results.json', 'w');
 fwrite($fp, json_encode($refundData));
