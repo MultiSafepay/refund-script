@@ -29,3 +29,6 @@ On the CLI. the script will output all results of all request done to MultiSafep
 after the program has finished there will be a json file created with all results of all successful and failed orders trying to refund
 
 ![CLI output](docs/images/cli-output.png)
+
+## Support
+You can create issues on our repository. If you need any additional help or support, please contact <a href="mailto:integration@multisafepay.com">integration@multisafepay.com</a>
