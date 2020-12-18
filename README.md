@@ -12,6 +12,7 @@ Place the two files in a place where PHP can be run
 ## Usage
 ### CSV file
 Import the file in a program like Excel and fill in all the data you want to refund. 
+The .CSV file has to be imported with a delimiter of ",".
 The required data that is needed are.
 * Order id
 * Amount
