@@ -4,30 +4,35 @@
 
 # MultiSafepay refund script
 
-Easily refund your MultiSafepay orders using this tool that can be used from the command line
+Easily refund multiple MultiSafepay orders using this command-line tool.
 
 ## Installation
 Place the two files in a place where PHP can be run
 
 ## Usage
 ### CSV file
-Import the file in a program like Excel and fill in all the data you want to refund. 
-The .CSV file has to be imported with a delimiter of ",".
-The required data that is needed are.
-* Order id
-* Amount
-* Description
+
+1. Import the file `refund.csv` in a spreadsheet editor like Excel and fill in all the data you want to refund
+2. Export the file as .csv and make sure the delimiter is set to ","
+
+The required values are:
+
+* order_id
+* amount
+* description
 
 ![CSV file](docs/images/csv-file.png)
 
-### CLI
+### Executing the script
+
+1. Place the files `refund.csv` and `refund.php` in the same directory
+2. In this directory, execute the following command-line instruction:
 ```shell
 php refund.php <api_key>
 ```
 
 ## Output
-On the CLI. the script will output all results of all request done to MultiSafepay,
-after the program has finished there will be a json file created with all results of all successful and failed orders trying to refund
+Upon execution, refund requests for all transactions in `refund.csv` are processed by MultiSafepay. The result of every request is written to a JSON file.
 
 ![CLI output](docs/images/cli-output.png)
 
